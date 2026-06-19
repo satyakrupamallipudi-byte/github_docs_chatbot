@@ -1,0 +1,160 @@
+About repositories
+A repository contains all of your code, your files, and each file's revision history. You can discuss and manage your work within the repository.
+
+In this article
+About repositories
+A repository is the most basic element of GitHub. It's a place where you can store your code, your files, and each file's revision history. Repositories can have multiple collaborators and can be either public or private.
+
+To create a new repository, go to https://github.com/new. For instructions, see Quickstart for repositories.
+
+Repository terminology
+Before getting started with repositories, learn these important terms.
+
+Term	Definition
+Branch	A parallel version of your code that is contained within the repository, but does not affect the primary or main branch.
+Clone	To download a full copy of a repository's data from GitHub.com, including all versions of every file and folder.
+Fork	A new repository that shares code and visibility settings with the original "upstream" repository.
+Merge	To take the changes from one branch and apply them to another.
+Pull request	A request to merge changes from one branch into another.
+Remote	A repository stored on GitHub, not on your computer.
+Upstream	The branch on an original repository that has been forked or cloned. The corresponding branch on the cloned or forked repository is called the "downstream."
+About repository ownership
+You can own repositories individually, or you can share ownership of repositories with other people in an organization.
+
+In either case, access to repositories is managed by permissions. For more information, see Permission levels for a personal account repository and Repository roles for an organization.
+
+About collaboration
+You can use repositories to manage your work and collaborate with others.
+
+You can use issues to collect user feedback, report software bugs, and organize tasks you'd like to accomplish. For more information, see About issues.
+You can use GitHub Discussions to ask and answer questions, share information, make announcements, and conduct or participate in conversations about a project. For more information, see About discussions.
+You can use pull requests to propose changes to a repository. For more information, see About pull requests.
+You can use Projects to organize and prioritize your issues and pull requests. For more information, see About Projects.
+With GitHub Free for personal accounts and organizations, you can work with unlimited collaborators on unlimited public repositories with a full feature set, or unlimited private repositories with a limited feature set. To get advanced tooling for private repositories, you can upgrade to GitHub Pro, GitHub Team, or GitHub Enterprise Cloud. For more information, see GitHub's plans.
+
+About repository visibility
+You can restrict who has access to a repository by choosing a repository's visibility: public or private.
+
+When you create a repository, you can choose to make the repository public or private. Repositories in organizations that use GitHub Enterprise Cloud and are owned by an enterprise account can also be created with internal visibility. For more information, see the GitHub Enterprise Cloud documentation.
+
+Public repositories are accessible to everyone on the internet.
+Private repositories are only accessible to you, people you explicitly share access with, and, for organization repositories, certain organization members.
+Security considerations for repository visibility
+Public repositories expose your codebase to everyone, increasing the risk that attackers might exploit vulnerabilities or access sensitive information. You can mitigate these risks by enabling GitHub security features such as Dependabot, secret scanning, push protection, and code scanning for the repository. Additionally, you should add a security policy (a SECURITY.md file) to your repository, that outlines how vulnerabilities should be reported, to ensure that potential threats are addressed efficiently.
+
+Although private repositories restrict access to authorized users, it's still essential to implement strong access controls, multi-factor authentication, and regular audits to mitigate risks.
+
+For more information, see Quickstart for securing your repository.
+
+Organization owners always have access to every repository created in an organization. For more information, see Repository roles for an organization.
+
+People with admin permissions for a repository can change an existing repository's visibility. For more information, see Setting repository visibility.
+
+Next steps
+Here are some helpful resources for taking your next steps with repositories.
+
+Best practices for repositories: Learn how to use repositories most effectively.
+Creating a new repository: Create a new repository.
+Creating and deleting branches within your repository: Learn how to create and delete branches within your repository.
+Creating a pull request: Create a pull request to propose and collaborate on changes to a repository.
+About pull requests
+Pull requests let you propose, review, and merge code changes.
+
+In this article
+Pull requests are proposals to merge code changes into a project. A pull request is GitHub's foundational collaboration feature, letting you discuss and review changes before merging them. This helps teams work together, catch issues early, and maintain code quality.
+
+
+Working with pull requests
+The Conversation tab of a pull request displays a description of the changes, a timeline of events, and comments and reviews from collaborators. This central hub lets you track the discussion and progress of the proposed changes.
+
+The Commits tab shows all commits made to the pull request branch in chronological order. This helps you understand the development history and see how the changes evolved over time.
+
+The Checks tab displays the status of any automated tests, builds, or other continuous integration workflows that run when you push commits. These checks help ensure your changes meet quality standards before merging.
+
+The Files changed tab shows the differences between the proposed changes and the existing code, making it easy to see what will change when the pull request merges.
+
+The Merge status of a pull request can be viewed directly in the header from anywhere in the pull request page. Click to open the details so you can quickly identify blockers, missing approvals, and get your pull request ready to merge.
+
+Draft pull requests
+When you create a pull request, you can choose to make it a draft pull request. Draft pull requests cannot be merged, and code owners are not automatically requested to review them. This is useful when you want to share work-in-progress without formally requesting reviews.
+
+When you're ready to get feedback on your pull request, you can mark your draft pull request as ready for review. Marking a pull request as ready for review will request reviews from any code owners. You can convert a pull request to a draft at any time. See Changing the stage of a pull request.
+
+Pull request refs and merge branches
+When you open a pull request, GitHub creates up to two temporary, read-only Git references for it:
+
+Ref	Description
+refs/pull/PULL_REQUEST_NUMBER/head	Points to the latest commit on the pull request's head branch.
+refs/pull/PULL_REQUEST_NUMBER/merge	A merge branch—a simulated merge commit that represents what the repository would look like if the pull request were merged right now. This ref is only available when the pull request has no merge conflicts.
+The merge branch automatically updates when the head branch changes. To fetch it locally:
+
+git fetch origin refs/pull/PULL_REQUEST_NUMBER/merge
+git checkout FETCH_HEAD
+Replace PULL_REQUEST_NUMBER with the number of your pull request.
+
+For information about how GitHub Actions uses the merge branch, see Events that trigger workflows.
+
+Differences between commits on compare and pull request pages
+The compare and pull request pages use different methods to calculate the diff for changed files:
+
+Compare pages show the diff between the tip of the head ref and the current common ancestor (that is, the merge base) of the head and base ref.
+Pull request pages show the diff between the tip of the head ref and the common ancestor of the head and base ref at the time when the pull request was created. As a result, the merge base used for the comparison might be different.
+Further reading
+Creating a pull request
+About branches
+Commenting on a pull request About branches
+Use a branch to isolate development work without affecting other branches in the repository. Each repository has one default branch, and can have multiple other branches. You can merge a branch into another branch using a pull request.
+
+In this article
+About branches
+Branches allow you to develop features, fix bugs, or safely experiment with new ideas in a contained area of your repository.
+
+You always create a branch from an existing branch. Typically, you might create a new branch from the default branch of your repository. You can then work on this new branch in isolation from changes that other people are making to the repository. A branch you create to build a feature is commonly referred to as a feature branch or topic branch. For more information, see Creating and deleting branches within your repository.
+
+You can also use a branch to publish a GitHub Pages site. For more information, see What is GitHub Pages?.
+
+You must have write access to a repository to create a branch, open a pull request, or delete and restore branches in a pull request. For more information, see Access permissions on GitHub.
+
+About the default branch
+When you create a repository with content on GitHub, GitHub creates the repository with a single branch. This first branch in the repository is the default branch. The default branch is the branch that GitHub displays when anyone visits your repository. The default branch is also the initial branch that Git checks out locally when someone clones the repository. Unless you specify a different branch, the default branch in a repository is the base branch for new pull requests and code commits.
+
+By default, GitHub names the default branch main in any new repository.
+
+You can change the default branch for an existing repository. For more information, see Changing the default branch.
+
+You can set the name of the default branch for new repositories. For more information, see Managing the default branch name for your repositories, Managing the default branch name for repositories in your organization, and Enforcing repository management policies in your enterprise.
+
+Working with branches
+Once you're satisfied with your work, you can open a pull request to merge the changes in the current branch (the head branch) into another branch (the base branch). For more information, see About pull requests.
+
+After a pull request has been merged, or closed, you can delete the head branch as this is no longer needed. You must have write access in the repository to delete branches. You can't delete branches that are directly associated with open pull requests. For more information, see Deleting and restoring branches in a pull request.
+
+If you delete a head branch after its pull request has been merged, GitHub checks for any open pull requests in the same repository that specify the deleted branch as their base branch. GitHub automatically updates any such pull requests, changing their base branch to the merged pull request's base branch. The following diagrams illustrate this.
+
+Here someone has created a branch called feature1 from the main branch, and you've then created a branch called feature2 from feature1. There are open pull requests for both branches. The arrows indicate the current base branch for each pull request. At this point, feature1 is the base branch for feature2. If the pull request for feature2 is merged now, the feature2 branch will be merged into feature1.
+
+Diagram that shows a feature1 branch with a pull request targeting main, and a feature2 branch with a pull request targeting feature1.
+
+In the next diagram, someone has merged the pull request for feature1 into the main branch, and they have deleted the feature1 branch. As a result, GitHub has automatically retargeted the pull request for feature2 so that its base branch is now main.
+
+Diagram that shows both feature1 and feature2 branches with pull requests targeting main.
+
+Now when you merge the feature2 pull request, it'll be merged into the main branch.
+
+Working with protected branches
+Repository administrators or custom roles with the "edit repository rules" permission can enable protections on a branch. If you're working on a branch that's protected, you won't be able to delete or force push to the branch. Repository administrators can additionally enable several other protected branch settings to enforce various workflows before a branch can be merged.
+
+Note
+
+If you're a repository administrator, you can merge pull requests on branches with branch protections enabled even if the pull request does not meet the requirements, unless branch protections have been set to "Include administrators."
+
+To see if your pull request can be merged, look in the merge box at the bottom of the pull request's Conversation tab. For more information, see About protected branches.
+
+When a branch is protected:
+
+You won't be able to delete or force push to the branch.
+If required status checks are enabled on the branch, you won't be able to merge changes into the branch until all of the required CI tests pass. For more information, see About status checks.
+If required pull request reviews are enabled on the branch, you won't be able to merge changes into the branch until all requirements in the pull request review policy have been met. For more information, see Merging a pull request.
+If required review from a code owner is enabled on a branch, and a pull request modifies code that has an owner, a code owner must approve the pull request before it can be merged. For more information, see About code owners.
+If required commit signing is enabled on a branch, you won't be able to push any commits to the branch that are not signed and verified. For more information, see About commit signature verification and About protected branches.
+If you use GitHub's conflict editor to fix conflicts for a pull request that you created from a protected branch, GitHub helps you to create an alternative branch for the pull request, so that your resolution of the conflicts can be merged. For more information, see Resolving a merge conflict on GitHub.
